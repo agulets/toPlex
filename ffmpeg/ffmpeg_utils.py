@@ -30,6 +30,9 @@ def exec_ffprobe(*params):
     if not os.path.exists(ffprobe):
         error = f"No ffprobe found: {ffprobe}"
 
+    if not os.access(ffprobe, os.X_OK):
+        error = f"FFprobe found but it's not have executable permissions!"
+
     if not error:
         try:
             exec_result = subprocess.Popen([ffprobe] + list(params), stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
@@ -48,6 +51,9 @@ def exec_ffmpeg(*params):
 
     if not os.path.exists(ffmpeg):
         error = f"No ffmpeg found: {ffmpeg}"
+
+    if not os.access(ffmpeg, os.X_OK):
+        error = f"FFprobe found but it's not have executable permissions!"
 
     if not error:
         try:
