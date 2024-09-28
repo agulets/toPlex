@@ -5,23 +5,6 @@ from collections import namedtuple
 from ffmpeg.ffmpeg_config import config
 
 
-AudioInfo = namedtuple('AudioInfo', [
-    'file_name',
-    'streams_count',
-    'format_name',
-    'duration',
-    'size',
-    'stream0_codec_name',
-    'stream0_type',
-    'stream0_bits_per_sample',
-    'stream0_bit_rate',
-    'stream0_sample_format',
-    'stream0_channels_count',
-    'stream0_sample_rate',
-    'error'
-])
-
-
 def exec_ffprobe(*params):
     error = None
     stdout = None
